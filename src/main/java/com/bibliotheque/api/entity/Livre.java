@@ -1,16 +1,19 @@
 package com.bibliotheque.api.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 @Entity                    // Indique que cette classe est une table en BDD
 @Table(name = "livres")    // Nom de la table
-@Data                      // Lombok : génère getters, setters, toString, equals, hashCode
-@NoArgsConstructor         // Lombok : génère le constructeur sans paramètres
-@AllArgsConstructor        // Lombok : génère le constructeur avec tous les paramètres
 public class Livre {
 
     @Id                                                    // Clé primaire
@@ -36,4 +39,55 @@ public class Livre {
     @ManyToOne
     @JoinColumn(name = "auteur_id")
     private Auteur auteur;
+
+    public Livre() {
+    }
+
+    public Livre(Long id, String titre, String isbn, Categorie categorie, Auteur auteur) {
+        this.id = id;
+        this.titre = titre;
+        this.isbn = isbn;
+        this.categorie = categorie;
+        this.auteur = auteur;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
+    public Auteur getAuteur() {
+        return auteur;
+    }
+
+    public void setAuteur(Auteur auteur) {
+        this.auteur = auteur;
+    }
 }
