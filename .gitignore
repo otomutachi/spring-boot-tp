@@ -1,0 +1,10 @@
+/target/
+spring-boot-tp/
+spring-boot-tp-clone/
+*.log
+*.class
+*.jar
+*.war
+*.iml
+.idea/
+.DS_Store

@@ -1,0 +1,156 @@
+### Lister tous les livres
+GET http://localhost:8080/api/livres
+
+### Récupérer le livre avec l'ID 1
+GET http://localhost:8080/api/livres/1
+
+### Créer un livre
+POST http://localhost:8080/api/livres
+Content-Type: application/json
+
+{
+  "titre": "",
+  "isbn": "978-2-07-054127-4",
+  "categorie": "ROMAN"
+}
+
+### Modifier un livre
+PUT http://localhost:8080/api/livres/1
+Content-Type: application/json
+
+{
+  "titre": "Le Seigneur des Anneaux (édition collector)",
+  "isbn": "978-2-07-061190-3",
+  "categorie": "ROMAN"
+}
+
+### Supprimer un livre
+DELETE http://localhost:8080/api/livres/1
+
+### Rechercher par titre
+GET http://localhost:8080/api/livres/search?titre=harry
+
+### Filtrer par catégorie
+GET http://localhost:8080/api/livres/categorie/MANGA
+
+
+-----------
+
+### Lister tous les auteurs
+GET http://localhost:8080/api/auteurs
+
+### Créer un auteur
+POST http://localhost:8080/api/auteurs
+Content-Type: application/json
+
+{
+  "nom": "Jean",
+  "prenom": "Paul"
+}
+
+-----------
+
+### Lister tous les utilisateurs
+GET http://localhost:8080/api/utilisateurs
+
+### Récupérer l'utilisateur avec l'ID 1
+GET http://localhost:8080/api/utilisateurs/1
+
+### Créer un utilisateur
+POST http://localhost:8080/api/utilisateurs
+Content-Type: application/json
+
+{
+  "nom": "Doe",
+  "prenom": "John",
+  "email": "john.doe@email.com",
+  "telephone": "0123456789"
+}
+
+### Modifier un utilisateur
+PUT http://localhost:8080/api/utilisateurs/1
+Content-Type: application/json
+
+{
+  "nom": "Dupont",
+  "prenom": "Jean",
+  "email": "jean.dupont@email.com",
+  "telephone": "0123456789"
+}
+
+### Supprimer un utilisateur
+DELETE http://localhost:8080/api/utilisateurs/1
+
+-----------
+
+### Lister tous les exemplaires
+GET http://localhost:8080/api/exemplaires
+
+### Récupérer l'exemplaire avec l'ID 1
+GET http://localhost:8080/api/exemplaires/1
+
+### Créer un exemplaire
+POST http://localhost:8080/api/exemplaires
+Content-Type: application/json
+
+{
+  "livreId": 1,
+  "numero": 3,
+  "etat": "DISPONIBLE"
+}
+
+### Modifier un exemplaire
+PUT http://localhost:8080/api/exemplaires/1
+Content-Type: application/json
+
+{
+  "numero": 1,
+  "etat": "DISPONIBLE"
+}
+
+### Supprimer un exemplaire
+DELETE http://localhost:8080/api/exemplaires/1
+
+-----------
+
+### Lister tous les emprunts
+GET http://localhost:8080/api/emprunts
+
+### Récupérer l'emprunt avec l'ID 1
+GET http://localhost:8080/api/emprunts/1
+
+### Créer un emprunt
+POST http://localhost:8080/api/emprunts
+Content-Type: application/json
+
+{
+  "utilisateurId": 1,
+  "exemplaireId": 3,
+  "dateEmprunt": "2023-02-01T10:00:00",
+  "dateRetourPrevue": "2023-02-15T10:00:00"
+}
+
+### Modifier un emprunt (retour)
+PUT http://localhost:8080/api/emprunts/1
+Content-Type: application/json
+
+{
+  "dateRetourEffective": "2023-01-10T10:00:00"
+}
+
+### Supprimer un emprunt
+DELETE http://localhost:8080/api/emprunts/1
+
+### Supprimer un livre
+DELETE http://localhost:8080/api/auteurs/2
+
+### Créer un livre
+POST http://localhost:8080/api/livres
+Content-Type: application/json
+
+{
+  "titre": "Harry Potter",
+  "isbn": "978-2-07-054127-4",
+  "categorie": "ROMAN",
+  "auteurId":1
+}
