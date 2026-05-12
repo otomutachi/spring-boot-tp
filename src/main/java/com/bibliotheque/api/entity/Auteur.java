@@ -1,15 +1,14 @@
 package com.bibliotheque.api.entity;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity                    // Indique que cette classe est une table en BDD
-@Table(name = "auteurs")    // Nom de la table
-@Data                      // Lombok : génère getters, setters, toString, equals, hashCode
-@NoArgsConstructor         // Lombok : génère le constructeur sans paramètres
-@AllArgsConstructor        // Lombok : génère le constructeur avec tous les paramètres
+@Entity                   
+@Table(name = "auteurs")    
 public class Auteur {
 
     @Id                                                    // Clé primaire
@@ -21,4 +20,37 @@ public class Auteur {
 
     @Column(nullable = false)
     private String prenom;
+
+    public Auteur() {
+    }
+
+    public Auteur(Long id, String nom, String prenom) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
 }
